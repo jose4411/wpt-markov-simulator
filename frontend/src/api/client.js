@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Pega aquí la URL pública exacta de tu backend desplegado en Render:
-const BASE_URL = "https://wpt-markov-simulator-1.onrender.com"; 
+const BASE_URL = "https://wpt-markov-backend-api.onrender.coms"; 
 
 const client = axios.create({ baseURL: BASE_URL, timeout: 10000 });
 

@@ -11,21 +11,36 @@ export default function App() {
     intervalMs: 700,
   });
 
+  // 🛡️ GUARDIÁN: Evita que Three.js y React colapsen si simState es undefined/null
+  if (!simState) {
+    return (
+      <div className="min-h-screen w-full bg-lab-950 text-slate-100 flex flex-col items-center justify-center font-mono">
+        <div className="flex items-center gap-3">
+          <span className="w-3 h-3 rounded-full bg-cyan-400 animate-ping" />
+          <p className="text-sm text-slate-300">Conectando con el servidor de Markov...</p>
+        </div>
+        <p className="text-[11px] text-slate-500 mt-2">
+          {connected ? "Cargando estado inicial..." : "Esperando conexión al backend..."}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen w-full bg-lab-950 text-slate-100 overflow-hidden">
       {/* --- Encabezado --- */}
       <header className="flex items-center justify-between px-6 py-4 border-b border-lab-700 bg-lab-950/90 backdrop-blur-sm relative z-10">
         <div>
           <h1 className="font-display text-lg tracking-tight text-slate-100">
-            Simulador Inteligente de Transferencia Inalambrica de Energia
+            Simulador Inteligente de Transferencia Inalámbrica de Energía
           </h1>
           <p className="text-[11px] font-mono text-slate-500 mt-0.5">
-            Agente de Markov · Acoplamiento resonante · Visualizacion educativa (no EM real)
+            Agente de Markov · Acoplamiento resonante · Visualización educativa (no EM real)
           </p>
         </div>
         <div className="flex items-center gap-2 text-[11px] font-mono">
           <span className={`w-2 h-2 rounded-full ${connected ? "bg-emerald-400" : "bg-danger-500"} pulse-glow`} />
-          {connected ? "backend conectado" : "sin conexion al backend"}
+          {connected ? "backend conectado" : "sin conexión al backend"}
         </div>
       </header>
 
