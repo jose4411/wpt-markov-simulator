@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // URL absoluta de tu servicio Backend en Render
-const BASE_URL = "https://wpt-markov-backend-api.onrender.com";
+const BASE_URL = "https://wpt-markov-api.onrender.com";
 
 const client = axios.create({ baseURL: BASE_URL, timeout: 10000 });
 
