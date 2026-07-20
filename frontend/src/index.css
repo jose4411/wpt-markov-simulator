@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #06090D;
+  color: #E7EEF5;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1017;
+}
+::-webkit-scrollbar-thumb {
+  background: #28394D;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22D3EE;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ligero grano/scanline para reforzar la sensacion "laboratorio / HUD cientifico" */
+.crt-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+  z-index: 40;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.pulse-glow {
+  animation: pulse-glow 2.2s ease-in-out infinite;
+}
+
+@keyframes flow-dash {
+  to { stroke-dashoffset: -40; }
+}
+.flow-line {
+  stroke-dasharray: 6 6;
+  animation: flow-dash 1s linear infinite;
+}
