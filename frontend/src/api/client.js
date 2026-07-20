@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+// Pega aquí la URL pública exacta de tu backend desplegado en Render:
+const BASE_URL = "https://wpt-markov-simulator-1.onrender.com"; 
 
-const client = axios.create({ baseURL: BASE_URL, timeout: 5000 });
+const client = axios.create({ baseURL: BASE_URL, timeout: 10000 });
 
 export const api = {
   getState: () => client.get("/api/state").then((r) => r.data),
@@ -16,4 +17,4 @@ export const api = {
   getPolicy: () => client.get("/api/policy").then((r) => r.data),
 };
 
-export default api;
+export default api; 
