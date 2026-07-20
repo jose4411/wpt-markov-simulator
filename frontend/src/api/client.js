@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// Pega aquí la URL pública exacta de tu backend desplegado en Render:
-const BASE_URL = "https://wpt-markov-backend-api.onrender.coms"; 
+// URL absoluta de tu servicio Backend en Render
+const BASE_URL = "https://wpt-markov-backend-api.onrender.com";
 
 const client = axios.create({ baseURL: BASE_URL, timeout: 10000 });
 
@@ -17,4 +17,4 @@ export const api = {
   getPolicy: () => client.get("/api/policy").then((r) => r.data),
 };
 
-export default api; 
+export default api;
